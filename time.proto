@@ -1,0 +1,18 @@
+// time.proto
+
+syntax = "proto3";
+package grpctest.time.v1;
+option go_package = "pkg/time";
+
+
+message GetCurrentTimeRequest {
+}
+
+message GetCurrentTimeResponse {
+  string date = 1;
+}
+
+service TimeService{
+  rpc GetCurrentTime(GetCurrentTimeRequest) returns (GetCurrentTimeResponse);
+  rpc GetCurrentTimeStream(GetCurrentTimeRequest) returns (stream GetCurrentTimeResponse);
+}
